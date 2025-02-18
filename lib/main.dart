@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:physio_dev_flutter/login.dart';
 import 'package:physio_dev_flutter/register.dart';
 import 'package:physio_dev_flutter/home.dart';
-
+import 'package:physio_dev_flutter/catagories.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         'login': (context) => MyLogin(),
         'register': (context) => MyRegister(),
         'home': (context) => HomePage(),
+        'catagories': (context) => RecoveryPathPage(),
       },
     );
   }
