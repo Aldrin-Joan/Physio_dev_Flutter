@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920994387671",
+    "project_id": "physio-dev-app",
+    "storage_bucket": "physio-dev-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920994387671:android:a037e778a2ef715df90292",
+        "android_client_info": {
+          "package_name": "com.example.physio_dev_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArgv5UiA2XU81woUJcQLY1nciXJtqe-d0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
