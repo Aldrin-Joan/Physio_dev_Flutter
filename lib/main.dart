@@ -5,9 +5,14 @@ import 'package:physio_dev_flutter/login.dart';
 import 'package:physio_dev_flutter/register.dart';
 import 'package:physio_dev_flutter/home.dart';
 import 'package:physio_dev_flutter/catagories.dart';
-void main() async {
+import 'package:physio_dev_flutter/Categories/Gait.dart';
+import 'package:physio_dev_flutter/Categories/balance.dart';
+
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
 
   // Check if a user is already signed in
   User? user = FirebaseAuth.instance.currentUser;
@@ -28,7 +33,9 @@ class MyApp extends StatelessWidget {
         'login': (context) => MyLogin(),
         'register': (context) => MyRegister(),
         'home': (context) => HomePage(),
-        'catagories': (context) => RecoveryPathPage(),
+        'categories': (context) => RecoveryPathPage(),
+        'Gait': (context) => GaitPage(),
+        'Balance': (context) => BalancePage(),
       },
     );
   }

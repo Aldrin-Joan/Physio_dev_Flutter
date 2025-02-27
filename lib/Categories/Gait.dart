@@ -30,8 +30,13 @@ class GaitPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-
-            // Exercise Cards in separate rows
+            _buildExerciseCard(
+              context,
+              title: "Gait Analysis And Calibration",
+              description: "Analyze and improve your walking pattern for better posture, efficiency, and balance.",
+              imagePath: "assets/intro_gait.png",
+            ),
+            SizedBox(height: 10),
             _buildExerciseCard(
               context,
               title: "Tandem Walking",
@@ -52,52 +57,54 @@ class GaitPage extends StatelessWidget {
   }
 
   Widget _buildExerciseCard(BuildContext context, {required String title, required String description, required String imagePath}) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 150, // Fixed height to prevent large image distortion
-              child: Image.asset(imagePath, fit: BoxFit.contain), // Ensures no cropping
-            ),
-            SizedBox(height: 8),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green[700]),
-            ),
-            SizedBox(height: 5),
-            Text(
-              description,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, color: Colors.black54),
-            ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: Colors.green[100],
-                    borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 4,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 150, // Fixed height to prevent large image distortion
+                child: Image.asset(imagePath, fit: BoxFit.contain), // Ensures no cropping
+              ),
+              SizedBox(height: 8),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green[700]),
+              ),
+              SizedBox(height: 5),
+              Text(
+                description,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, color: Colors.black54),
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Colors.green[100],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      "Intermediate",
+                      style: TextStyle(fontSize: 12, color: Colors.green[800]),
+                    ),
                   ),
-                  child: Text(
-                    "Intermediate",
-                    style: TextStyle(fontSize: 12, color: Colors.green[800]),
+                  Text(
+                    "10-15 mins",
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
                   ),
-                ),
-                Text(
-                  "10-15 mins",
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

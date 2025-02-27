@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'Categories/Gait.dart'; // Import the Gait.dart file
+import 'Categories/balance.dart';
+import 'package:physio_dev_flutter/Categories/post_surg.dart';
 class RecoveryPathPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,18 +41,28 @@ class RecoveryPathPage extends StatelessWidget {
                     "Gait And Walking",
                     "To improve walking patterns and mobility for safer, more comfortable movement.",
                     "assets/gait_disorders.jpg",
+                    GaitPage(), // Pass the destination page
                   ),
                   _buildRecoveryCard(
                     context,
                     "Balance And Posture Correction",
                     "Focuses on stability and alignment to prevent falls and improve posture.",
                     "assets/wrong_posture.png",
+                    BalancePage(), // No navigation yet
                   ),
                   _buildRecoveryCard(
                     context,
                     "Flexibility And Range Of Motion",
                     "Exercises to enhance joint mobility and ease of movement.",
                     "assets/medical-rehabilitation-physical-therapy-activities-physiotherapist-working-patients-cartoon-vector-illustration-white-95502853.jpg.webp",
+                    null, // No navigation yet
+                  ),
+                  _buildRecoveryCard(
+                    context,
+                    "Cognitive Exercises",
+                    "Activities to improve coordination and mental agility.",
+                    "assets/cogni.png",
+                    null, // No navigation yet
                   ),
                 ],
               ),
@@ -61,7 +73,7 @@ class RecoveryPathPage extends StatelessWidget {
     );
   }
 
-  Widget _buildRecoveryCard(BuildContext context, String title, String description, String imagePath) {
+  Widget _buildRecoveryCard(BuildContext context, String title, String description, String imagePath, Widget? destinationPage) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 4,
@@ -88,7 +100,9 @@ class RecoveryPathPage extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green[600]),
               onPressed: () {
-                // Handle button press
+                if (destinationPage != null) {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => destinationPage));
+                }
               },
               child: Text("Get Started"),
             ),
